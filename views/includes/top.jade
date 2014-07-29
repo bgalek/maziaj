@@ -1,7 +1,9 @@
 #top
-    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation', data-ng-controller="menuCtrl")
         .container
             a.navbar-brand(href='#') Maziaj
             ul.nav.navbar-nav
-                li
+                li(data-ng-class="{ active: isActive('/')}")
                     a(href='#') Galeria
+                li(data-ng-class="{ active: isActive('/chain')}")
+                    a(href='#') Łańcuszek

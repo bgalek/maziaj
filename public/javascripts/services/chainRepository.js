@@ -5,7 +5,7 @@ maziajApp.services.factory('chainRepository', ['$http', 'endpoints', function ($
                 return response.data;
             });
         },
-        getChain: function (id) {
+        getChainById: function (id) {
             return $http.get(endpoints.chainById(id)).then(function (response) {
                 return response.data;
             });

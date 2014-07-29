@@ -18,5 +18,10 @@ maziajApp.config(['$routeProvider', function ($routeProvider) {
         controller: 'galleryCtrl',
         templateUrl: 'partials/gallery'
     });
+    $routeProvider.when('/chain/:id', {
+        title: "Sznurek",
+        controller: 'chainCtrl',
+        templateUrl: 'partials/chain'
+    });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
