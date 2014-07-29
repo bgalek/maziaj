@@ -6,8 +6,9 @@
                 small &nbsp; zwariowane sznurki
     .row
         .col-md-6.portfolio-item(data-ng-repeat="chain in chains.list")
-            a(href='#')
-                img.img-responsive(data-ng-src='{{chain.value}}', alt='')
+            a(href='#/chain/{{chain._id}}')
+                img.img-responsive(data-ng-show="chain.text.length>0", data-ng-src='http://placehold.it/500x300&text={{chain.text}}', alt='')
+                img.img-responsive(data-ng-show="chain.image.length>0", data-ng-src='{{chain.image}}', alt='')
             h3
                 a(href='#') {{chain.type}}
             p

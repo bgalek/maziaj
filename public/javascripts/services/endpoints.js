@@ -1,11 +1,11 @@
 maziajApp.factory('endpoints', function () {
-    var apiEndpoint = 'http://localhost:3000/';
+    var apiEndpoint = 'http://api-maziaj.herokuapp.com/';
     return {
         chainsList: function (page) {
-            return apiEndpoint + 'chains' + '?page=' + page;
+            return apiEndpoint + 'chain' + '?page=' + page;
         },
         chainById: function (id) {
-            return apiEndpoint + 'chains/' + id;
+            return apiEndpoint + 'chain/' + id;
         }
     };
 });

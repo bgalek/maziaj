@@ -1,9 +1,3 @@
-var env = process.env.NODE_ENV || 'production';
-
-if (env === 'development') {
-    console.log("DEVELOPMENT MODE");
-}
-
 //express
 var express = require('express'),
     path = require('path'),
@@ -15,7 +9,6 @@ var express = require('express'),
 
 //routes
 var routes = require('./routes/index');
-var chains = require('./routes/chains');
 var partials = require('./routes/partials');
 
 //app
@@ -37,7 +30,6 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/chains', chains);
 app.use('/partials', partials);
 
 /// catch 404 and forward to error handler
