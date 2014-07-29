@@ -1,7 +1,7 @@
 maziajApp.services.factory('chainRepository', ['$http', 'endpoints', function ($http, endpoints) {
     return {
-        getChains: function (page, limit) {
-            return $http.get(endpoints.chainsList(page - 1, limit)).then(function (response) {
+        getChains: function (page) {
+            return $http.get(endpoints.chainsList(page)).then(function (response) {
                 return response.data;
             });
         },

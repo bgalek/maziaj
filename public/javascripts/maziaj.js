@@ -3,7 +3,8 @@ var maziajApp = angular.module('maziajApp', [
     'maziajApp.filters',
     'maziajApp.services',
     'maziajApp.directives',
-    'maziajApp.controllers'
+    'maziajApp.controllers',
+    'ui.bootstrap'
 ]);
 
 maziajApp.filters = angular.module('maziajApp.filters', []);

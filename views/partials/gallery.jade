@@ -5,65 +5,14 @@
                 | Galeria
                 small &nbsp; zwariowane sznurki
     .row
-        .col-md-6.portfolio-item
+        .col-md-6.portfolio-item(data-ng-repeat="chain in chains.list")
             a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
+                img.img-responsive(data-ng-src='{{chain.value}}', alt='')
             h3
-                a(href='#') Project One
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-        .col-md-6.portfolio-item
-            a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
-            h3
-                a(href='#') Project Two
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-    .row
-        .col-md-6.portfolio-item
-            a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
-            h3
-                a(href='#') Project Three
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-        .col-md-6.portfolio-item
-            a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
-            h3
-                a(href='#') Project Four
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-    .row
-        .col-md-6.portfolio-item
-            a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
-            h3
-                a(href='#') Project Five
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-        .col-md-6.portfolio-item
-            a(href='#')
-                img.img-responsive(src='http://placehold.it/700x400', alt='')
-            h3
-                a(href='#') Project Six
+                a(href='#') {{chain.type}}
             p
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
     hr
     .row.text-center
         .col-lg-12
-            ul.pagination
-                li
-                    a(href='#') «
-                li.active
-                    a(href='#') 1
-                li
-                    a(href='#') 2
-                li
-                    a(href='#') 3
-                li
-                    a(href='#') 4
-                li
-                    a(href='#') 5
-                li
-                    a(href='#') »
+            pagination(data-ng-if="chains.list.length > 0", total-items='chains.totalItems', ng-model='chains.currentPage', ng-change='chains.pageChanged()')
