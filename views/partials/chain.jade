@@ -1,0 +1,7 @@
+.container
+    h1=title
+    div(style='height: 300px;')
+        carousel
+            slide(ng-repeat='doodle in doodles', active='doodle.active')
+                img(ng-src='{{doodle.image}}', style='margin: auto;')
+        button.btn.btn-info(type='button', ng-click='loadDoodle(nextDoodle)') Next
