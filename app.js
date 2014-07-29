@@ -8,14 +8,15 @@ if (env === 'development') {
 var express = require('express'),
     path = require('path'),
     favicon = require('static-favicon'),
+    http = require('http'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    http = require('http');
+    bodyParser = require('body-parser');
 
 //routes
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var chains = require('./routes/chains');
+var partials = require('./routes/partials');
 
 //app
 var app = module.exports = express();
@@ -36,7 +37,8 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/chains', chains);
+app.use('/partials', partials);
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {
