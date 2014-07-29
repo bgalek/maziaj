@@ -13,6 +13,7 @@
     "bootstrap": "~3.1.1",
     "angular": "1.2.x",
     "angular-route": "1.2.x",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "ngInfiniteScroll": "1.0.0"
   }
 }

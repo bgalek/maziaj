@@ -4,7 +4,8 @@ var maziajApp = angular.module('maziajApp', [
     'maziajApp.services',
     'maziajApp.directives',
     'maziajApp.controllers',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'infinite-scroll'
 ]);
 
 maziajApp.filters = angular.module('maziajApp.filters', []);
@@ -16,7 +17,8 @@ maziajApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         title: "Przeglądaj sznurki",
         controller: 'galleryCtrl',
-        templateUrl: 'partials/gallery'
+        templateUrl: 'partials/gallery',
+        reloadOnSearch: false
     });
     $routeProvider.when('/chain/:id', {
         title: "Sznurek",

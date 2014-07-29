@@ -4,6 +4,7 @@
             h1.page-header
                 | Galeria
                 small &nbsp; zwariowane sznurki
+                pagination.pull-right(style='margin: 0px;',data-ng-if="chains.list.length > 0", total-items='chains.totalItems', ng-model='chains.currentPage', ng-change='chains.pageChanged()')
     .row
         .col-md-6.portfolio-item(data-ng-repeat="chain in chains.list")
             a(href='#/chain/{{chain._id}}')
@@ -13,7 +14,3 @@
                 a(href='#') {{chain.type}}
             p
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-    hr
-    .row.text-center
-        .col-lg-12
-            pagination(data-ng-if="chains.list.length > 0", total-items='chains.totalItems', ng-model='chains.currentPage', ng-change='chains.pageChanged()')

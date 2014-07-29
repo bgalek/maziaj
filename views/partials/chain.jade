@@ -1,7 +1,8 @@
 .container
     h1=title
-    div(style='height: 300px;')
-        carousel
-            slide(ng-repeat='doodle in doodles', active='doodle.active')
-                img(ng-src='{{doodle.image}}', style='margin: auto;')
-        button.btn.btn-info(type='button', ng-click='loadDoodle(nextDoodle)') Next
+    section(infinite-scroll="loadDoodle(nextDoodle)", infinite-scroll-disabled='busy', infinite-scroll-distance='1')
+        div(ng-repeat='doodle in doodles')
+            div
+                img.img-responsive(data-ng-show="doodle.text.length>0", data-ng-src='http://placehold.it/500x300&text={{doodle.text}}', alt='')
+                img.img-responsive(data-ng-show="doodle.image.length>0", data-ng-src='{{doodle.image}}', alt='')
+        div(ng-show='busy') Wczytywanie sznurka...
