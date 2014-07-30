@@ -1,0 +1,25 @@
+.container
+    .row
+        .col-lg-12
+            h1.page-header=title
+                small=subtitle
+            p
+                button(ng-click='strokeColor = "#ff00ff"')
+                    | ff00ff
+                button(ng-click='strokeColor = "#0000ff"')
+                    | 0000ff
+                button(ng-click='strokeColor = "#ff0000"')
+                    | ff0000
+            p
+                button(ng-click='gameCanvas = "undo"')
+                    | undo
+            p
+                label Rozmiar:
+                input(type='range', min='3', max='30', ng-model='strokeWidth')
+            div(style='background-color:#eee; width:500px; height:300px; display:block; margin: 0 auto;')
+                canvas(width='500px', height='300px', stroke-color='strokeColor', stroke-width='strokeWidth', ng-model='gameCanvas', draw='draw')
+            p
+                button.btn.btn-default(ng-click='gameCanvas = ""')
+                    | Clear
+            p
+                textarea(style='width:100%;',ng-model='gameCanvas')

@@ -4,7 +4,6 @@ maziajApp.controllers.controller('galleryCtrl',
             var chains = $scope.chains = {};
             chains.currentPage = ($routeParams.page > 0) ? $routeParams.page : 1;
             chains.updateList = function (page) {
-                console.log('update');
                 chainRepository.getChains(page).then(function (data) {
                     chains.list = data.list;
                     chains.totalItems = data.totalItems;
