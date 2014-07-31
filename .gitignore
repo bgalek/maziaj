@@ -2,5 +2,5 @@
 .idea
 node_modules
 public/lib
-public/stylesheets/*.less
+public/stylesheets/*.css
 npm-debug.log
