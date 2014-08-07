@@ -7,7 +7,7 @@ maziajApp.directives.directive("draw", ['$timeout', '$localStorage', function ($
         strokeWidth: '=?',
         restrict: 'AE',
         replace: 'true',
-        templateUrl: 'partials/canvas',
+        templateUrl: 'game/canvas',
         link: function (scope, element) {
 
             /* scope const */
@@ -68,7 +68,13 @@ maziajApp.directives.directive("draw", ['$timeout', '$localStorage', function ($
                 }
             };
 
+            scope.$parent.getCanvas = function () {
+                return scope.drawing;
+            };
+
             scope.clear = clear;
+
+            scope.$parent.clearCanvas = scope.clear;
 
             /* private functions */
 

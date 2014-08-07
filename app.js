@@ -10,6 +10,7 @@ var express = require('express'),
 //routes
 var routes = require('./routes/index');
 var partials = require('./routes/partials');
+var game = require('./routes/game');
 
 //app
 var app = module.exports = express();
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/partials', partials);
+app.use('/game', game);
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {

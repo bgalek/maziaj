@@ -12,8 +12,5 @@ router.get('/chain', function (req, res) {
 router.get('/play', function (req, res) {
     res.render('partials/play', { title: 'Graj', subtitle: 'czas na grę' });
 });
-router.get('/canvas', function (req, res) {
-    res.render('partials/canvas');
-});
 
 module.exports = router;
