@@ -1,3 +1,4 @@
+"use strict";
 maziajApp.services.factory('chainRepository', ['$http', 'endpoints', function ($http, endpoints) {
     return {
         getChains: function (page) {

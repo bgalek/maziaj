@@ -2,8 +2,7 @@
     .container
         .row
             .col-lg-6.col-lg-offset-3
-                p.lead.text-center
-                    | W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej. Tu będzie jeszcze maziajowy edytorek żeby zachęcic do natychmiastowego zagrania.
+                p.lead.text-center W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej. Tu będzie jeszcze maziajowy edytorek żeby zachęcic do natychmiastowego zagrania.
 
 .container
     .row
@@ -15,8 +14,7 @@
         .col-md-4.portfolio-item(data-ng-repeat="chain in chains.list")
             article.doodle
                 a(href='#/chain/{{chain._id}}')
-                    div.doodle-text(data-ng-show="chain.text.length>0")
-                        | {{chain.text}}
+                    div.doodle-text(data-ng-show="chain.text.length>0") {{chain.text}}
                     img.doodle-image.img-responsive(data-ng-show="chain.image.length>0", data-ng-src='{{chain.image}}', alt='')
                 span.doodle-detail.age 6
                     small dni

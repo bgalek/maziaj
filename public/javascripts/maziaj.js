@@ -1,3 +1,4 @@
+"use strict";
 var maziajApp = angular.module('maziajApp', [
     'ngRoute',
     'maziajApp.filters',
@@ -6,8 +7,7 @@ var maziajApp = angular.module('maziajApp', [
     'maziajApp.controllers',
     'ui.bootstrap',
     'infinite-scroll',
-    'ngStorage',
-    'maziaj.draw'
+    'ngStorage'
 ]);
 
 maziajApp.filters = angular.module('maziajApp.filters', []);
@@ -21,16 +21,16 @@ maziajApp.config(['$routeProvider', function ($routeProvider) {
         controller: 'galleryCtrl',
         templateUrl: 'partials/gallery',
         reloadOnSearch: false
-    });
+    }, true);
     $routeProvider.when('/chain/:id', {
         title: "Sznurek",
         controller: 'chainCtrl',
         templateUrl: 'partials/chain'
-    });
+    }, true);
     $routeProvider.when('/play', {
         title: "Play",
         controller: 'playCtrl',
         templateUrl: 'partials/play'
-    });
+    }, true);
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
