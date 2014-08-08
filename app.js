@@ -7,8 +7,7 @@ var express = require('express'),
     less = require('less-middleware'),
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    auth = require('./lib/auth');
+    bodyParser = require('body-parser');
 
 //routes
 var routes = require('./routes/index');
@@ -17,7 +16,15 @@ var game = require('./routes/game');
 var login = require('./routes/login');
 
 //app
-var app = module.exports = express();
+var app = module.export = express();
+
+//set global env
+if (app.get('env') === 'production') {
+    exports.env = 'production';
+}
+
+//enable auth
+var auth = require('./lib/auth');
 
 //configuration
 var oneDay = 86400000;
@@ -54,9 +61,17 @@ app.use(function (req, res, next) {
 });
 
 /// error handlers
-
-// development error handler - will print stacktrace
-if (app.get('env') === 'development') {
+if (app.get('env') === 'production') {
+    // production error handler - no stacktraces leaked to user
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: {}
+        });
+    });
+} else {
+    // development error handler - will print stacktrace
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
@@ -65,16 +80,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
-// production error handler - no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
