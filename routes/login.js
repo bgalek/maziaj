@@ -14,7 +14,7 @@ router.get('/auth/facebook/callback',
         failureRedirect: '/login' }));
 
 /* GOOGLE */
-router.get('/auth/google', passport.authenticate('oauth2'));
+router.get('/auth/google', passport.authenticate('oauth2', { scope: ['email', 'profile'] }));
 
 router.get('/auth/google/return',
     passport.authenticate('oauth2', { successRedirect: '/',
