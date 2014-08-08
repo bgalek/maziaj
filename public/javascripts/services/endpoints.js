@@ -1,5 +1,5 @@
 maziajApp.factory('endpoints', function () {
-    var apiEndpoint = 'http://localhost:8080/';
+    var apiEndpoint = 'http://api-maziaj.herokuapp.com/';
     return {
         chainsList: function (page) {
             return apiEndpoint + 'chain' + '?page=' + page;
