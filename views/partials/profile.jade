@@ -1,0 +1,13 @@
+.container
+    .row
+        .col-lg-12
+            h1.page-header=title
+                small=subtitle
+            - if (typeof(user) !== "undefined"){
+                .well
+                    p="imię: " + user.username
+                    p="email: " + user.email
+            -} else {
+                p.navbar-text
+                    a(href="login") nie jesteś zalogowany
+            -}
