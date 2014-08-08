@@ -16,20 +16,21 @@ maziajApp.controllers = angular.module('maziajApp.controllers', []);
 
 maziajApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
-        title: 'Przeglądaj sznurki',
         controller: 'galleryCtrl',
         templateUrl: 'partials/gallery',
         reloadOnSearch: false
     }, true);
     $routeProvider.when('/chain/:id', {
-        title: 'Sznurek',
         controller: 'chainCtrl',
         templateUrl: 'partials/chain'
     }, true);
     $routeProvider.when('/play', {
-        title: 'Play',
         controller: 'playCtrl',
         templateUrl: 'partials/play'
+    }, true);
+    $routeProvider.when('/profile', {
+        controller: 'profileCtrl',
+        templateUrl: 'partials/profile'
     }, true);
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

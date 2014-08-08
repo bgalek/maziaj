@@ -14,4 +14,6 @@ maziajApp.controllers.controller('galleryCtrl',
                 $location.search('page', chains.currentPage);
                 this.updateList(chains.currentPage);
             };
-        }]);
+        }
+    ]
+);

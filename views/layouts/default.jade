@@ -26,6 +26,8 @@ html(ng-app="maziajApp")
                                     a(href="#") Łańcuszek
                                 li(data-ng-class="{ active: isActive('/play')}")
                                     a(href="#/play") Graj
+                                li(data-ng-class="{ active: isActive('/profile')}")
+                                    a(href="#/profile") Profil
                             - if (typeof(user) !== "undefined"){
                                 p.navbar-text
                                     a(href="logout")="witaj " + user.username + "(" + user.email + ")"
@@ -57,3 +59,4 @@ html(ng-app="maziajApp")
                 script(src="javascripts/controllers/galleryCtrl.js")
                 script(src="javascripts/controllers/chainCtrl.js")
                 script(src="javascripts/controllers/playCtrl.js")
+                script(src="javascripts/controllers/profileCtrl.js")

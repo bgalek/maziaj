@@ -12,4 +12,6 @@ maziajApp.controllers.controller('chainCtrl',
                 });
             };
             $scope.loadDoodle($routeParams.id);
-        }]);
+        }
+    ]
+);
