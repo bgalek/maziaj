@@ -1,6 +1,5 @@
-"use strict";
 maziajApp.controllers.controller('menuCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.isActive = function (viewLocation) {
-        return viewLocation === "/" + $location.path().split("/")[1];
+        return viewLocation === '/' + $location.path().split('/')[1];
     };
 }]);

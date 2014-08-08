@@ -1,32 +1,32 @@
 doctype html
 html(ng-app="maziajApp")
     head
-        meta(charset='utf-8')
+        meta(charset="utf-8")
         title Maziaj.pl
-        base(href='/')
-        meta(http-equiv='X-UA-Compatible', content='IE=edge')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext', rel='stylesheet', type='text/css')
-        link(href='lib/bootstrap/dist/css/bootstrap.css', rel='stylesheet')
-        link(rel='stylesheet', href='stylesheets/style.css')
+        base(href="/")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(href="http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext", rel="stylesheet", type="text/css")
+        link(href="lib/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+        link(rel="stylesheet", href="stylesheets/style.css")
         //if lt IE 9
-          script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-          script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+          script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+          script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
         body(data-ng-class="page.bodyClass")
             block menu
                 #top
-                    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation', data-ng-controller="menuCtrl")
+                    nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation", data-ng-controller="menuCtrl")
                         .container
-                            a.navbar-brand(href='#')
+                            a.navbar-brand(href="#")
                                 img(src="images/logotype.png", alt="Maziaj")
                             ul.nav.navbar-nav.pull-right
                                 li(data-ng-class="{ active: isActive('/')}")
-                                    a(href='#') Galeria
+                                    a(href="#") Galeria
                                 li(data-ng-class="{ active: isActive('/chain')}")
-                                    a(href='#') Łańcuszek
+                                    a(href="#") Łańcuszek
                                 li(data-ng-class="{ active: isActive('/play')}")
-                                    a(href='#/play') Graj
-                            - if (typeof(user) !== 'undefined'){
+                                    a(href="#/play") Graj
+                            - if (typeof(user) !== "undefined"){
                                 p.navbar-text
                                     a(href="logout")="witaj " + user.username + "(" + user.email + ")"
                             -} else {
@@ -39,21 +39,21 @@ html(ng-app="maziajApp")
                 .col-lg-12
                     p Copyright © Maziaj 2014
             block javascripts
-                script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-                script(src='lib/bootstrap/dist/js/bootstrap.min.js')
-                script(src='lib/moment/min/moment-with-locales.min.js')
-                script(src='lib/angular/angular.min.js')
-                script(src='lib/angular-route/angular-route.min.js')
-                script(src='lib/angular-bootstrap/ui-bootstrap-tpls.min.js')
-                script(src='lib/ngInfiniteScroll/build/ng-infinite-scroll.min.js')
-                script(src='lib/ngstorage/ngStorage.min.js')
-                script(src='javascripts/maziaj.js')
-                script(src='javascripts/services/chainRepository.js')
-                script(src='javascripts/services/endpoints.js')
-                script(src='javascripts/directives/gameCanvas.js')
-                script(src='javascripts/directives/gameCaption.js')
-                script(src='javascripts/filters/todayDelta.js')
-                script(src='javascripts/controllers/menuCtrl.js')
-                script(src='javascripts/controllers/galleryCtrl.js')
-                script(src='javascripts/controllers/chainCtrl.js')
-                script(src='javascripts/controllers/playCtrl.js')
+                script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+                script(src="lib/bootstrap/dist/js/bootstrap.min.js")
+                script(src="lib/moment/min/moment-with-locales.min.js")
+                script(src="lib/angular/angular.min.js")
+                script(src="lib/angular-route/angular-route.min.js")
+                script(src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js")
+                script(src="lib/ngInfiniteScroll/build/ng-infinite-scroll.min.js")
+                script(src="lib/ngstorage/ngStorage.min.js")
+                script(src="javascripts/maziaj.js")
+                script(src="javascripts/services/chainRepository.js")
+                script(src="javascripts/services/endpoints.js")
+                script(src="javascripts/directives/gameCanvas.js")
+                script(src="javascripts/directives/gameCaption.js")
+                script(src="javascripts/filters/todayDelta.js")
+                script(src="javascripts/controllers/menuCtrl.js")
+                script(src="javascripts/controllers/galleryCtrl.js")
+                script(src="javascripts/controllers/chainCtrl.js")
+                script(src="javascripts/controllers/playCtrl.js")

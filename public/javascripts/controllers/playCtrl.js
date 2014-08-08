@@ -1,4 +1,3 @@
-"use strict";
 maziajApp.controllers.controller('playCtrl', ['$scope', 'chainRepository',
     function ($scope, chainRepository) {
 
@@ -11,7 +10,7 @@ maziajApp.controllers.controller('playCtrl', ['$scope', 'chainRepository',
             $scope.chain = chainRepository.getNextFreeChain().then(function (data) {
                 $scope.disable = false;
                 $scope.chain = data;
-                if ($scope.chain.length == 0) {
+                if ($scope.chain.length === 0) {
                     $scope.action = 'draw';
                 } else {
                     if ($scope.chain.hasOwnProperty('text')) {
@@ -25,7 +24,7 @@ maziajApp.controllers.controller('playCtrl', ['$scope', 'chainRepository',
 
         $scope.save = function () {
             $scope.disable = true;
-            if ($scope.chain.length == 0) {
+            if ($scope.chain.length === 0) {
                 if ($scope.action === 'draw') {
                     chainRepository.postImageDoodle('author', $scope.getCanvas()).then(function (data) {
                         $scope.clearCanvas();
@@ -50,6 +49,6 @@ maziajApp.controllers.controller('playCtrl', ['$scope', 'chainRepository',
                     });
                 }
             }
-        }
+        };
     }
 ]);

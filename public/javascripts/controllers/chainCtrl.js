@@ -1,4 +1,3 @@
-"use strict";
 maziajApp.controllers.controller('chainCtrl',
     ['$scope', '$routeParams', '$location', 'chainRepository',
         function ($scope, $routeParams, $location, chainRepository) {
