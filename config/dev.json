@@ -1,0 +1,12 @@
+{
+    "auth": {
+        "facebook": {
+            "APP_ID": "DUMMY_APP_ID",
+            "APP_SECRET": "DUMMY_SECRET",
+            "CALLBACK_URL": "DUMMY_CALBACK"
+        },
+        "google": {
+            "CALLBACK_URL": "DUMMY_CALBACK"
+        }
+    }
+}

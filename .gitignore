@@ -4,3 +4,4 @@ node_modules
 public/lib
 public/stylesheets/*.css
 npm-debug.log
+config/prod.json
