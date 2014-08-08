@@ -19,7 +19,8 @@ var login = require('./routes/login');
 var app = module.export = express();
 
 //set global env
-if (app.get('env') === 'production') {
+if (process.env.env === 'production') {
+    app.set('env', 'production');
     exports.env = 'production';
 }
 
