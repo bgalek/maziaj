@@ -1,7 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('passport'),
-    FacebookStrategy = require('passport-facebook').Strategy;
+    passport = require('passport');
 
 /* NATIVE LOGIN */
 router.post('/', passport.authenticate('local', { successRedirect: '/',
@@ -18,7 +17,7 @@ router.get('/auth/facebook/callback',
 router.get('/auth/google', passport.authenticate('google'));
 
 router.get('/auth/google/return',
-    passport.authenticate('google', { successRedirect: '/',
+    passport.authenticate('oauth2', { successRedirect: '/',
         failureRedirect: '/login' }));
 
 module.exports = router;
