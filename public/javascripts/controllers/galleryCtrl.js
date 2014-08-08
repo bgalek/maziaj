@@ -1,4 +1,3 @@
-"use strict";
 maziajApp.controllers.controller('galleryCtrl',
     ['$scope', '$routeParams', '$location', 'chainRepository',
         function ($scope, $routeParams, $location, chainRepository) {

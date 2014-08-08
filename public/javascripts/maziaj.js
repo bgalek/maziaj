@@ -1,4 +1,3 @@
-"use strict";
 var maziajApp = angular.module('maziajApp', [
     'ngRoute',
     'maziajApp.filters',
@@ -17,18 +16,18 @@ maziajApp.controllers = angular.module('maziajApp.controllers', []);
 
 maziajApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
-        title: "Przeglądaj sznurki",
+        title: 'Przeglądaj sznurki',
         controller: 'galleryCtrl',
         templateUrl: 'partials/gallery',
         reloadOnSearch: false
     }, true);
     $routeProvider.when('/chain/:id', {
-        title: "Sznurek",
+        title: 'Sznurek',
         controller: 'chainCtrl',
         templateUrl: 'partials/chain'
     }, true);
     $routeProvider.when('/play', {
-        title: "Play",
+        title: 'Play',
         controller: 'playCtrl',
         templateUrl: 'partials/play'
     }, true);

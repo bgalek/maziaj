@@ -1,12 +1,12 @@
 #draw
-    button.btn.btn-default(ng-click='strokeColor = "#ff00ff"') ff00ff
-    button.btn.btn-default(ng-click='strokeColor = "#0000ff"') 0000ff
-    button.btn.btn-default(ng-click='strokeColor = "#ff0000"') ff0000
-    button.btn.btn-default(ng-click='clear()') Clear
-    button.btn.btn-default(ng-click='undo()') undo
+    button.btn.btn-default(ng-click="strokeColor = '#ff00ff'") ff00ff
+    button.btn.btn-default(ng-click="strokeColor = '#0000ff'") 0000ff
+    button.btn.btn-default(ng-click="strokeColor = '#ff0000'") ff0000
+    button.btn.btn-default(ng-click="clear()") Clear
+    button.btn.btn-default(ng-click="undo()") undo
     p
         label Rozmiar:
-        input(type='range', min='3', max='50', ng-model='strokeWidth')
-    div(style='background-color:#eee; width:500px; height:300px; display:block; margin: 0 auto;')
-        canvas#canvas(width='500px', height='300px', stroke-color='strokeColor', stroke-width='strokeWidth', ng-model='gameCanvas')
+        input(type="range", min="3", max="50", ng-model="strokeWidth")
+    div(style="background-color:#eee; width:500px; height:300px; display:block; margin: 0 auto;")
+        canvas#canvas(width="500px", height="300px", stroke-color="strokeColor", stroke-width="strokeWidth", ng-model="gameCanvas")
     p

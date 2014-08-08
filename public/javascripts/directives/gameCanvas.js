@@ -1,5 +1,4 @@
-"use strict";
-maziajApp.directives.directive("draw", ['$timeout', '$localStorage', function ($timeout, $localStorage) {
+maziajApp.directives.directive('draw', ['$timeout', '$localStorage', function ($timeout, $localStorage) {
     return {
         scope: {},
         ngModel: '=',
@@ -11,15 +10,15 @@ maziajApp.directives.directive("draw", ['$timeout', '$localStorage', function ($
         link: function (scope, element) {
 
             /* scope const */
-            var DEFAULT_STROKE_COLOR = "#000";
-            var DEFAULT_STROKE_WIDTH = 5;
-            var DEFAULT_STROKE_STYLE = "round";
-            var DEFAULT_MAX_UNDO = 5;
-            var DEFAULT_CANVAS_BACKGROUND_COLOR = "#eee";
-            var IMAGE = new Image();
+            var DEFAULT_STROKE_COLOR = '#000',
+                DEFAULT_STROKE_WIDTH = 5,
+                DEFAULT_STROKE_STYLE = 'round',
+                DEFAULT_MAX_UNDO = 5,
+                DEFAULT_CANVAS_BACKGROUND_COLOR = '#eee',
+                IMAGE = new Image();
 
             /* scope init */
-            element = element.find("canvas");
+            element = element.find('canvas');
 
             if (typeof $localStorage.restorePoints === 'undefined') {
                 $localStorage.restorePoints = [];

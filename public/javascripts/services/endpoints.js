@@ -1,4 +1,3 @@
-"use strict";
 maziajApp.factory('endpoints', function () {
     var apiEndpoint = 'http://api-maziaj.herokuapp.com/';
     return {

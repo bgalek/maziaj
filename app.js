@@ -7,7 +7,8 @@ var express = require('express'),
     less = require('less-middleware'),
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    auth = require('./lib/auth');
 
 //routes
 var routes = require('./routes/index');
@@ -18,19 +19,11 @@ var login = require('./routes/login');
 //app
 var app = module.export = express();
 
-//set global env
-if (process.env.env === 'production') {
-    app.set('env', 'production');
-    exports.env = 'production';
-}
-
-//enable auth
-var auth = require('./lib/auth');
-
 //configuration
 var oneDay = 86400000;
 
 app.set('port', process.env.PORT || 3000);
+app.set('env', process.env.ENV || 'development');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
