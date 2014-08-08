@@ -22,31 +22,34 @@ maziajApp.controllers.controller('playCtrl', ['$scope', 'chainRepository',
             });
         }
 
+        function clear() {
+            $scope.clearCanvas();
+            $scope.clearCaption();
+            newGame();
+        }
+
         $scope.save = function () {
             $scope.disable = true;
-            if ($scope.chain.length === 0) {
-                if ($scope.action === 'draw') {
-                    chainRepository.postImageDoodle('author', $scope.getCanvas()).then(function (data) {
-                        $scope.clearCanvas();
-                        newGame();
-                    });
-                } else if ($scope.action === 'describe') {
-                    chainRepository.postCaptionDoodle('author', $scope.getCaption()).then(function (data) {
-                        $scope.clearCaption();
-                        newGame();
-                    });
+            if ($scope.action === 'draw') {
+                if ($scope.getCanvas() === null) {
+                    $scope.disable = false;
+                    return;
                 }
-            } else {
-                if ($scope.action === 'draw') {
-                    chainRepository.putImageDoodle($scope.chain._id, 'author', $scope.getCanvas()).then(function (data) {
-                        $scope.clearCanvas();
-                        newGame();
-                    });
-                } else if ($scope.action === 'describe') {
-                    chainRepository.putCaptionDoodle($scope.chain._id, 'author', $scope.getCaption()).then(function (data) {
-                        $scope.clearCaption();
-                        newGame();
-                    });
+                if ($scope.chain.length === 0) {
+                    chainRepository.postImageDoodle('author', $scope.getCanvas()).then(clear);
+                } else {
+                    chainRepository.putImageDoodle($scope.chain._id, 'author', $scope.getCanvas()).then(clear);
+                }
+
+            } else if ($scope.action === 'describe') {
+                if ($scope.getCaption() === null) {
+                    $scope.disable = false;
+                    return;
+                }
+                if ($scope.chain.length === 0) {
+                    chainRepository.postCaptionDoodle('author', $scope.getCaption()).then(clear);
+                } else {
+                    chainRepository.putCaptionDoodle($scope.chain._id, 'author', $scope.getCaption()).then(clear);
                 }
             }
         };

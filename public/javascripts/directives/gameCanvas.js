@@ -68,6 +68,9 @@ maziajApp.directives.directive('draw', ['$timeout', '$localStorage', function ($
             };
 
             scope.$parent.getCanvas = function () {
+                if (scope.restorePoints.length == 1) {
+                    return null;
+                }
                 return scope.drawing;
             };
 

@@ -7,6 +7,9 @@ maziajApp.directives.directive('describe', [function () {
         templateUrl: 'game/caption',
         link: function (scope) {
             scope.$parent.getCaption = function () {
+                if(typeof scope.caption == 'undefined' || scope.caption.length < 1) {
+                    return null;
+                }
                 return scope.caption;
             };
             scope.$parent.clearCaption = function () {

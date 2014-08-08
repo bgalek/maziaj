@@ -20,7 +20,7 @@ var login = require('./routes/login');
 var app = module.export = express();
 
 //configuration
-var oneDay = 86400000;
+var DEFAULT_LOG_FORMAT = 'dev';
 
 app.set('port', process.env.PORT || 3000);
 app.set('env', process.env.ENV || 'development');
@@ -28,7 +28,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(favicon());
-app.use(logger('dev'));
+app.use(logger(DEFAULT_LOG_FORMAT));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
