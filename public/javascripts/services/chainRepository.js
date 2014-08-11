@@ -17,38 +17,26 @@ maziajApp.services.factory('chainRepository', ['$http', 'endpoints', function ($
             );
         },
         putImageDoodle: function (prev, author, drawing) {
-            return $http.put(endpoints.doodle(),
-                {
-                    'prev': prev,
-                    'author': author,
-                    'image': drawing
-                }
-            );
+            var data = {
+                'prev': prev,
+                'author': author,
+                'image': drawing
+            };
+            if (prev === null) {
+                delete data.prev;
+            }
+            return $http.put(endpoints.doodle(), data);
         },
         putCaptionDoodle: function (prev, author, caption) {
-            return $http.put(endpoints.doodle(),
-                {
-                    'prev': prev,
-                    'author': author,
-                    'text': caption
-                }
-            );
-        },
-        postImageDoodle: function (author, drawing) {
-            return $http.post(endpoints.doodle(),
-                {
-                    'author': author,
-                    'image': drawing
-                }
-            );
-        },
-        postCaptionDoodle: function (author, caption) {
-            return $http.post(endpoints.doodle(),
-                {
-                    'author': author,
-                    'text': caption
-                }
-            );
+            var data = {
+                'prev': prev,
+                'author': author,
+                'text': caption
+            };
+            if (prev === null) {
+                delete data.prev;
+            }
+            return $http.put(endpoints.doodle(), data);
         }
     };
 }]);
