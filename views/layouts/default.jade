@@ -6,38 +6,51 @@ html(ng-app="maziajApp")
         base(href="/")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1")
-        link(href="http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext", rel="stylesheet", type="text/css")
+        link(href="http://fonts.googleapis.com/css?family=Lato:400,500", rel="stylesheet", type="text/css")
         link(href="lib/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
         link(href="stylesheets/style.css", rel="stylesheet")
         block stylesheets
-
         //if lt IE 9
           script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
           script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
         body(data-ng-class="page.bodyClass")
             block menu
                 #top
-                    nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation", data-ng-controller="menuCtrl")
+                    nav(role="navigation", data-ng-controller="menuCtrl")
                         .container
-                            a.navbar-brand(href="#")
-                                img(src="images/logotype.png", alt="Maziaj")
-                            ul.nav.navbar-nav.pull-right
-                                li(data-ng-class="{ active: isActive('/')}")
-                                    a(href="#") Galeria
-                                li(data-ng-class="{ active: isActive('/chain')}")
-                                    a(href="#") Łańcuszek
+                            ul
                                 li(data-ng-class="{ active: isActive('/play')}")
-                                    a(href="#/play") Graj
+                                    a(href="#/play")
+                                        span Chcę
+                                            br
+                                            small maziać
+                                li(data-ng-class="{ active: isActive('/help')}")
+                                    a(href="#/help")
+                                        span Czym jest
+                                            br
+                                            small maziaj
+                                li
+                                    .logo
+                                        a(href="#/")
+                                            img(src="images/logotype.png", alt="Maziaj")
+                                li(data-ng-class="{ active: isActive('/')}")
+                                    a(href="#/chain")
+                                        span Galeria
+                                            br
+                                            small sznurków
                                 li(data-ng-class="{ active: isActive('/profile')}")
-                                    a(href="#/profile") Profil
-                            - if (typeof(user) !== "undefined"){
-                                p.navbar-text
-                                    a(href="logout")="witaj " + user.display_name
-                            -} else {
-                                p.navbar-text
-                                    a(href="login") nie jesteś zalogowany
-                            -}
+                                    a(href="#/profile")
+                                        span Profil
+                                            br
+                                            small maziacza
             block content
+            - if (typeof(user) !== "undefined"){
+                p
+                    a(href="logout")="witaj " + user.display_name
+            -} else {
+                p
+                    a(href="login") nie jesteś zalogowany
+            -}
             hr
             footer
                 .col-lg-12

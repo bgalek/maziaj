@@ -62,9 +62,11 @@ maziajApp.directives.directive('game', ['$timeout', '$localStorage', 'chainRepos
             /* scope functions */
 
             scope.clear = function () {
-                resetCanvas();
                 scope.restorePoints = $localStorage.restorePoints = [];
                 scope.restorePoints.push(canvas.toDataURL());
+                scope.caption = '';
+                scope.disable = false;
+                newGame();
             };
 
             scope.undo = function () {

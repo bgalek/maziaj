@@ -5,8 +5,7 @@
                 small=subtitle
             - if (typeof(user) !== "undefined"){
                 .well
-                    p="imię: " + user.username
-                    p="email: " + user.email
+                    h1=user.display_name
             -} else {
                 p.navbar-text
                     a(href="login") nie jesteś zalogowany
