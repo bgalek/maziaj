@@ -17,44 +17,42 @@ html(ng-app="maziajApp")
             block menu
                 #top
                     nav(role="navigation", data-ng-controller="menuCtrl")
-                        .container
-                            ul
-                                li(data-ng-class="{ active: isActive('/play')}")
-                                    a(href="#/play")
-                                        span Chcę
-                                            br
-                                            small maziać
-                                li(data-ng-class="{ active: isActive('/help')}")
-                                    a(href="#/help")
-                                        span Czym jest
-                                            br
-                                            small maziaj
-                                li
-                                    .logo
-                                        a(href="#/")
-                                            img(src="images/logotype.png", alt="Maziaj")
-                                li(data-ng-class="{ active: isActive('/')}")
-                                    a(href="#/chain")
-                                        span Galeria
-                                            br
-                                            small sznurków
-                                li(data-ng-class="{ active: isActive('/profile')}")
-                                    a(href="#/profile")
-                                        span Profil
-                                            br
-                                            small maziacza
+                        ul
+                            li(data-ng-class="{ active: isActive('/play')}")
+                                a(href="#/play")
+                                    span Chcę
+                                        br
+                                        small maziać
+                            li(data-ng-class="{ active: isActive('/help')}")
+                                a(href="#/help")
+                                    span Czym jest
+                                        br
+                                        small maziaj
+                            li
+                                .logo
+                                    a(href="#/")
+                                        img(src="images/logotype.png", alt="Maziaj")
+                            li(data-ng-class="{ active: isActive('/')}")
+                                a(href="#/chain")
+                                    span Galeria
+                                        br
+                                        small sznurków
+                            li(data-ng-class="{ active: isActive('/profile')}")
+                                a(href="#/profile")
+                                    span Profil
+                                        br
+                                        small maziacza
             block content
-            - if (typeof(user) !== "undefined"){
-                p
-                    a(href="logout")="witaj " + user.display_name
-            -} else {
-                p
-                    a(href="login") nie jesteś zalogowany
-            -}
-            hr
             footer
-                .col-lg-12
-                    p Copyright © Maziaj 2014
+                .container
+                    .row
+                        .col-lg-6
+                            p Copyright © Maziaj 2014
+                        .col-lg-6
+                            p
+                                strong Popełnili
+                                br
+                                span Bartosz Gałek, Krzysztof Borkowski, Jakub Dębski
             block javascripts
                 script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
                 script(src="lib/bootstrap/dist/js/bootstrap.min.js")

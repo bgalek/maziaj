@@ -2,7 +2,7 @@ var express = require('express'),
     router = express.Router();
 
 router.get('/gallery', function (req, res) {
-    res.render('partials/gallery', { title: 'Galeria', subtitle: 'zwariowane sznurki' });
+    res.render('partials/gallery', { title: 'Najnowsze sznurki', subtitle: 'świeża porcja absurdu' });
 });
 
 router.get('/chain', function (req, res) {

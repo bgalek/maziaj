@@ -3,8 +3,11 @@ var express = require('express'),
     passport = require('passport');
 
 /* NATIVE LOGIN */
-router.post('/', passport.authenticate('local', { successRedirect: '/',
-    failureRedirect: '/login' }));
+router.post('/', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
 
 /* FACEBOOK */
 router.get('/auth/facebook', passport.authenticate('facebook'));

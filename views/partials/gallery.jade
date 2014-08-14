@@ -1,17 +1,36 @@
 #showcase
     .container
         .row
-            .col-lg-6.help
-                p W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej. Tu będzie jeszcze maziajowy edytorek żeby zachęcic do natychmiastowego zagrania.
-            .col-lg-6.login-form
-                img(src="images/login-form-mock.png")
+            .col-lg-7.help
+                p W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej.
+                cite Jak nadal nie łapiesz zasad, po prostu zagraj.
+                br
+                strong To na serio proste.
+            .col-lg-3.login-form
+                form(action="/login", method="POST")
+                    fieldset
+                        a.play(href="#/play") Graj!
+                        span.divider
+                            small lub
+                        input(type="text", name="username", placeholder="email...", required="required", autofocus="autofocus")
+                        input(type="password", name="password",  placeholder="hasło...", required="required")
+                        input(type="submit", value="zaloguj się")
+                a.btn.btn-facebook(href="login/auth/facebook") zaloguj się przez
+                    br
+                    strong facebook
+                a.btn.btn-google(href="login/auth/google") zaloguj się przez
+                    br
+                    strong google
 .container
     .row
         .col-lg-12
-            h1.page-header=title
-                small=subtitle
+            h2 Najnowsze sznurki
                 pagination.pull-right(style="margin: 0px;",data-ng-if="chains.list.length > 0", total-items="chains.totalItems", ng-model="chains.currentPage", ng-change="chains.pageChanged()")
-    .row
+            small świeża porcja absurdu
+
+            h2 Najlepsze sznurki
+            small największe zdolniachy i świry
+            .row
         .col-md-4.portfolio-item(data-ng-repeat="chain in chains.list")
             article.doodle
                 a(href="#/chain/{{chain._id}}")
