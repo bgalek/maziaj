@@ -1,0 +1,53 @@
+doctype html
+html(ng-app='maziaj')
+    head
+        meta(charset="utf-8")
+        title Maziaj.pl
+        base(href="/")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(href="http://fonts.googleapis.com/css?family=Lato:400,500", rel="stylesheet", type="text/css")
+        //styles
+        block stylesheets
+        body(data-ng-class="page.bodyClass")
+            block menu
+                #top
+                    nav(role="navigation", data-ng-controller="menuCtrl")
+                        ul
+                            li(data-ng-class="{ active: isActive('/play')}")
+                                a(href="#/play")
+                                    span Chcę
+                                        br
+                                        small maziać
+                            li(data-ng-class="{ active: isActive('/help')}")
+                                a(href="#/help")
+                                    span Czym jest
+                                        br
+                                        small maziaj
+                            li
+                                .logo
+                                    a(href="#/")
+                                        img(src="assets/images/logotype.png", alt="Maziaj")
+                            li(data-ng-class="{ active: isActive('/')}")
+                                a(href="#/chain")
+                                    span Galeria
+                                        br
+                                        small sznurków
+                            li(data-ng-class="{ active: isActive('/profile')}")
+                                a(href="#/profile")
+                                    span Profil
+                                        br
+                                        small maziacza
+            block content
+            footer
+                .container
+                    .row
+                        .col-lg-6
+                            p Copyright © Maziaj 2014
+                        .col-lg-6
+                            p
+                                strong Popełnili
+                                br
+                                span Bartosz Gałek, Krzysztof Borkowski, Jakub Dębski
+            block javascripts
+            //scripts

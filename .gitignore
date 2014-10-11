@@ -1,7 +1,6 @@
-*.iml
 .idea
 node_modules
-public/lib
-public/stylesheets/*.css
-npm-debug.log
-config/config.json
+build
+release
+tmp
+bower_components
