@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = /*@ngInject*/
-    function gameDirective($timeout, $localStorage, chainRepository) {
+    function game($timeout, localStorageService, chainRepositoryService) {
         return {
             scope: {},
             caption: '=',
@@ -9,7 +9,7 @@ module.exports = /*@ngInject*/
             strokeWidth: '=?',
             restrict: 'AE',
             replace: 'true',
-            templateUrl: 'game',
+            templateUrl: 'views/game.html',
             link: function (scope, element) {
 
                 /* scope const */
@@ -27,8 +27,8 @@ module.exports = /*@ngInject*/
                 scope.chain = null;
                 scope.action = null;
 
-                if (typeof $localStorage.restorePoints === 'undefined') {
-                    $localStorage.restorePoints = [];
+                if (typeof localStorageService.restorePoints === 'undefined') {
+                    localStorageService.restorePoints = [];
                 }
 
                 newGame();
@@ -65,7 +65,7 @@ module.exports = /*@ngInject*/
                 /* scope functions */
 
                 scope.clear = function () {
-                    scope.restorePoints = $localStorage.restorePoints = [];
+                    scope.restorePoints = localStorageService.restorePoints = [];
                     scope.restorePoints.push(canvas.toDataURL());
                     scope.caption = '';
                     scope.disable = false;
@@ -82,9 +82,9 @@ module.exports = /*@ngInject*/
                 scope.save = function () {
                     scope.disable = true;
                     if (scope.action === 'draw') {
-                        chainRepository.putImageDoodle((typeof scope.chain === 'undefined') ? null : scope.chain._id, 'author', canvas.toDataURL()).then(scope.clear);
+                        chainRepositoryService.putImageDoodle((typeof scope.chain === 'undefined') ? null : scope.chain._id, 'author', canvas.toDataURL()).then(scope.clear);
                     } else if (scope.action === 'describe') {
-                        chainRepository.putCaptionDoodle((typeof scope.chain === 'undefined') ? null : scope.chain._id, 'author', scope.caption).then(scope.clear);
+                        chainRepositoryService.putCaptionDoodle((typeof scope.chain === 'undefined') ? null : scope.chain._id, 'author', scope.caption).then(scope.clear);
                     }
                 };
 
@@ -135,11 +135,11 @@ module.exports = /*@ngInject*/
                 function newGame() {
                     resetCanvas();
 
-                    scope.restorePoints = $localStorage.restorePoints;
+                    scope.restorePoints = localStorageService.restorePoints;
                     scope.strokeWidth = scope.strokeWidth || DEFAULT_STROKE_WIDTH;
                     scope.strokeColor = scope.strokeColor || DEFAULT_STROKE_COLOR;
 
-                    chainRepository.getNextFreeChain().then(function (data, error) {
+                    chainRepositoryService.getNextFreeChain().then(function (data, error) {
                         scope.chain = data;
                         if (scope.chain && scope.chain.hasOwnProperty('text')) {
                             scope.action = 'draw';
