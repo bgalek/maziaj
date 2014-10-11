@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
     express = require('express'),
+    i18n = require("i18n"),
     path = require('path'),
     http = require('http'),
     session = require('express-session'),
@@ -10,6 +11,11 @@ var gulp = require('gulp'),
     auth = require('../../src/lib/auth'),
     logger = require('morgan'),
     routes = require('../../src/routes');
+
+i18n.configure({
+    locales:['pl', 'en'],
+    directory: path.join(__dirname, '../../locales')
+});
 
 //app
 var app = module.export = express();
@@ -23,6 +29,7 @@ if (app.get('env') == 'production') {
     staticServerPath = RELEASE_FOLDER + '/assets';
 }
 app.set('view engine', 'jade');
+app.use(i18n.init);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
