@@ -6,7 +6,7 @@ global.TMP_FOLDER = 'tmp';
 global.config = {
     paths: {
         src: {
-            index: SRC_FOLDER + '/index.jade',
+            index: SRC_FOLDER + '/templates/*.jade',
             assets: [SRC_FOLDER + '/assets/**/*', '!' + SRC_FOLDER + '/assets/images/**/*'],
             images: SRC_FOLDER + '/assets/images/**/*',
             scripts: SRC_FOLDER + '/app/**/*.js',
@@ -20,16 +20,16 @@ global.config = {
         },
         dest: {
             build: {
-                styles: BUILD_FOLDER,
-                scripts: BUILD_FOLDER,
+                styles: BUILD_FOLDER + '/assets',
+                scripts: BUILD_FOLDER + '/assets',
                 images: BUILD_FOLDER + '/assets/images',
                 assets: BUILD_FOLDER + '/assets',
                 index: BUILD_FOLDER,
                 server: BUILD_FOLDER
             },
             release: {
-                styles: RELEASE_FOLDER,
-                scripts: RELEASE_FOLDER,
+                styles: RELEASE_FOLDER + '/assets',
+                scripts: RELEASE_FOLDER + '/assets',
                 images: RELEASE_FOLDER + '/assets/images',
                 assets: RELEASE_FOLDER + '/assets',
                 index: RELEASE_FOLDER,
@@ -58,5 +58,27 @@ global.config = {
     ports: {
         staticServer: 3000,
         livereloadServer: 35729
+    },
+    cookie: {
+        secret: "AH%#@$LKFADS)@#%@$:LJKDCXZVC}X{CBCVNAFDADSKFSJD"
+    },
+    auth: {
+        facebook: {
+            "clientID": "730865793639949",
+            "callbackURL": "http://maziaj.herokuapp.com/login/auth/facebook/callback"
+        },
+        google: {
+            authorizationURL: "https://accounts.google.com/o/oauth2/auth",
+            tokenURL: "https://accounts.google.com/o/oauth2/token",
+            clientID: "662372396489-5jtc6km803bhrdienkp08s63as45hpa5.apps.googleusercontent.com",
+            callbackURL: "http://maziaj.herokuapp.com/login/auth/google/return"
+        }
+    },
+    user: {
+        model: {
+            provider: "",
+            display_name: "",
+            accounts: []
+        }
     }
 };
