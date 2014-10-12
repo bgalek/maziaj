@@ -6,9 +6,8 @@ var fs = require('fs'),
 
 require('./config');
 
-// --release flag when executing a task
+// --production flag when executing a task
 global.production = argv.production;
-
 tasks.forEach(function (task) {
   require('./tasks/' + task);
 });

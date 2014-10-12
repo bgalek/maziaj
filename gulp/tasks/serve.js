@@ -9,8 +9,7 @@ var gulp = require('gulp'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     auth = require('../../src/lib/auth'),
-    logger = require('morgan'),
-    routes = require('../../src/routes');
+    logger = require('morgan');
 
 i18n.configure({
     locales: ['pl', 'en'],
@@ -44,11 +43,12 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+app.use('/', require('../../src/routes'));
+app.use('/login', require('../../src/routes/login.js'))
+
 app.use(auth.passport.initialize());
 app.use(auth.passport.session());
 app.use(express.static(staticServerPath));
-
-app.use('/', routes);
 
 module.exports = gulp.task('serve', function (next) {
     http.createServer(app).listen(app.get('port'), function () {
