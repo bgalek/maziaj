@@ -15,7 +15,7 @@ function handleError(err) {
 module.exports = gulp.task('templates', function () {
     return gulp.src([config.paths.src.templates, config.paths.src.templatesHTML])
         .pipe(gulpif(/[.]jade$/, jade({ pretty: true }).on('error', handleError)))
-        .pipe(gulpif(production, minifyHTML({empty: true, spare: true, quotes: true})))
+        .pipe(gulpif(global.production, minifyHTML({empty: true, spare: true, quotes: true})))
         .pipe(templateCache({ standalone: true }))
         .pipe(header('module.exports = '))
         .pipe(gulp.dest(config.paths.src.templatesCompiled));

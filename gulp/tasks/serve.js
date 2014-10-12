@@ -13,7 +13,7 @@ var gulp = require('gulp'),
     routes = require('../../src/routes');
 
 i18n.configure({
-    locales:['pl', 'en'],
+    locales: ['pl', 'en'],
     directory: path.join(__dirname, '../../locales')
 });
 
@@ -21,13 +21,16 @@ i18n.configure({
 var app = module.export = express();
 
 app.set('port', process.env.PORT || config.ports.staticServer);
-app.set('env', process.env.ENV || 'development');
 app.set('views', path.join(__dirname, '../../' + BUILD_FOLDER));
+app.locals.pretty = true;
+
 var staticServerPath = BUILD_FOLDER + '/assets';
-if (app.get('env') == 'production') {
+if (global.production) {
     app.set('views', path.join(__dirname, '../../' + RELEASE_FOLDER));
     staticServerPath = RELEASE_FOLDER + '/assets';
+    app.locals.pretty = false;
 }
+
 app.set('view engine', 'jade');
 app.use(i18n.init);
 app.use(bodyParser.json());

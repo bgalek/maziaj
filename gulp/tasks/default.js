@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 module.exports = gulp.task('default', function () {
-    if (production) {
+    if (global.production) {
         runSequence(
             'clean',
             ['index', 'styles', 'images', 'assets', 'templates', 'lint'],

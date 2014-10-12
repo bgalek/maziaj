@@ -17,11 +17,11 @@ function handleError(err) {
 
 module.exports = gulp.task('styles', function () {
     return gulp.src(config.paths.src.styles)
-        .pipe(gulpif(!production, sourcemaps.init()))
+        .pipe(gulpif(!global.production, sourcemaps.init()))
         .pipe(less().on('error', handleError))
         .pipe(autoprefixer('last 1 version'))
-        .pipe(gulpif(production, csso()))
-        .pipe(gulpif(!production, sourcemaps.write()))
-        .pipe(gulpif(production, rename(config.filenames.release.styles), rename(config.filenames.build.styles)))
-        .pipe(gulpif(production, gulp.dest(config.paths.dest.release.styles), gulp.dest(config.paths.dest.build.styles)));
+        .pipe(gulpif(global.production, csso()))
+        .pipe(gulpif(!global.production, sourcemaps.write()))
+        .pipe(gulpif(global.production, rename(config.filenames.release.styles), rename(config.filenames.build.styles)))
+        .pipe(gulpif(global.production, gulp.dest(config.paths.dest.release.styles), gulp.dest(config.paths.dest.build.styles)));
 });

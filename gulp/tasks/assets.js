@@ -5,5 +5,5 @@ var gulpif = require('gulp-if');
 
 module.exports = gulp.task('assets', function () {
     return gulp.src(config.paths.src.assets)
-        .pipe(gulpif(production, gulp.dest(config.paths.dest.release.assets), gulp.dest(config.paths.dest.build.assets)));
+        .pipe(gulpif(global.production, gulp.dest(config.paths.dest.release.assets), gulp.dest(config.paths.dest.build.assets)));
 });
