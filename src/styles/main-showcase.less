@@ -2,21 +2,36 @@
 
 #showcase {
     background-color: rgba(0, 118, 175, 0.9);
-    height: 315px;
+    //height: 315px;
     .help {
         font-family: @lato;
         color: #fff;
-        text-align: right;
+        text-align: center;
+        padding: 30px 200px 0 200px;
         p {
             font-size: 130%;
             line-height: 170%;
-            padding: 9% 0 0 0;
+            //padding: 9% 0 0 0;
             font-weight: 300;
         }
         cite {
-            font-size: 130%;
-            line-height: 170%;
+            display: block;
+            font-size: 110%;
+            line-height: 130%;
             color: rgba(255, 255, 255, 0.6);
+        }
+        .play {
+            background: #a31b20;
+            width: 200px;
+            display: inline-block;
+            position: relative;
+            bottom: -30px;
+            border: 0 none;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            height: 60px;
+            line-height: 40px;
         }
     }
     .login-form {
@@ -85,5 +100,8 @@
             }
         }
     }
+}
 
+#gallery {
+    padding-top: 30px;
 }

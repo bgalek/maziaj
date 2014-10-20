@@ -1,12 +1,13 @@
 #showcase
     .container
         .row
-            .col-lg-7.help
-                p W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej.
+            .col-lg-12.help
+                p.text-center W Maziaj czasem musisz opisać jakiś rysunek, a czasem narysować coś do podanego opisu. Osoba rysująca widzi tylko ostatni opis, a opisująca tylko ostatni rysunek. Takie kalambury, w których wszyscy odpowiadają źle i tworzy się z tych rysunków i opisów coraz większy sznur niejasności. I to nic nie szkodzi. Tak jest śmieszniej.
                 cite Jak nadal nie łapiesz zasad, po prostu zagraj.
                     br
                     strong To na serio proste.
-            .col-lg-3.login-form
+                a.btn.btn-danger.btn-lg.play(href="#/play") Graj!
+            //.col-lg-3.login-form
                 form(action="/login", method="POST")
                     fieldset
                         a.play(href="#/play") Graj!
@@ -21,17 +22,12 @@
                 a.btn.btn-google(href="login/auth/google") zaloguj się przez
                     br
                     strong google
-.container
+#gallery.container
     .row
         .col-lg-12
-            h2 Najnowsze sznurki
+            h2.text-center Najnowsze sznurki
                 small świeża porcja absurdu
             
-            pagination.pull-right(style="margin: 0px;",data-ng-if="chains.list.length > 0", total-items="chains.totalItems", ng-model="chains.currentPage", ng-change="chains.pageChanged()")
-
-            h2 Najlepsze sznurki
-                small największe zdolniachy i świry
-            .row
         .col-md-3.portfolio-item(data-ng-repeat="chain in chains.list")
             article.doodle
                 a(href="#/chain/{{chain._id}}")
@@ -40,3 +36,5 @@
                 span.doodle-detail.age
                     small {{chain.creation_date | todayDeltaFilter}}
                 span.doodle-detail.count 24
+        .col-lg-12
+            pagination.pull-right(style="margin: 0px;",data-ng-if="chains.list.length > 0", total-items="chains.totalItems", ng-model="chains.currentPage", ng-change="chains.pageChanged()")
