@@ -1,5 +1,5 @@
 .game(ng-class="{true:'disabled', false:''}[disable==true]")
-    .loading-overlay Przetwarzanie...
+    .loading-overlay Processing...
     small.pull-right {{action}} {{chain.creation_date}}
     div(ng-show="action == 'draw'")
         h3 {{chain.text}}
@@ -8,9 +8,9 @@
             button.btn.btn-default(ng-click="strokeColor = '#0000ff'") 0000ff
             button.btn.btn-default(ng-click="strokeColor = '#ff0000'") ff0000
             button.btn.btn-default(ng-click="clear()") Clear
-            button.btn.btn-default(ng-click="undo()") undo
+            button.btn.btn-default(ng-click="undo()") Undo
             p
-                label Rozmiar:
+                label Size:
                 input(type="range", min="3", max="50", ng-model="strokeWidth")
             div(style="background-color:#eee; width:500px; height:300px; display:block; margin: 0 auto;")
                 canvas#canvas(width="500px", height="300px", stroke-color="strokeColor", stroke-width="strokeWidth")
@@ -18,6 +18,6 @@
     div(ng-show="action == 'describe'")
         img(ng-src="{{chain.image}}")
         #describe
-            label Dodaj opis:
+            label Describe what you see:
             input#caption(type="text", ng-model="caption")
     button(ng-click="save()") Save
