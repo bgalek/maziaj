@@ -1,60 +1,63 @@
 @import 'variables';
 
 article.doodle {
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background: transparent;
     margin: 26px auto 0;
     max-width: @doodle-max-width;
     min-height: @doodle-max-height;
     position: relative;
-    width: 80%;
-    &:before, &:after {
-        content: "";
-        height: 98%;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
-    }
-    &:before {
-        background: #fafafa;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        left: -5px;
-        top: 4px;
-        transform: rotate(-2.5deg);
-    }
-    &:after {
-        background: #f6f6f6;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        right: -3px;
-        top: 1px;
-        transform: rotate(1.4deg);
-    }
-    .doodle-text {
-        display: block;
-        width: 100%;
-        height: @doodle-max-height;
-        text-align: center;
-        line-height: @doodle-max-height;
-        font-family: 'Patrick Hand SC' @sans-serif;
-    }
-    .doodle-detail {
-        background-color: #333;
-        border-radius: 90px;
-        color: #fff;
-        padding: 3px;
-        position: absolute;
-        top: -15px;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 33px;
-        font-weight: 300;
-        font-size: 18px;
-        &.age {
-            left: -15px;
+    width: 100%;
+    .doodle-details {
+        color: #909090;
+        font-family: @lato;
+        padding: 0 3px;
+        strong {
+            font-weight: 700;
+            color: #444444;
         }
-        &.count {
-            right: -15px;
+        i {
+            margin-right: 5px;
+        }
+        .counter-doodlers {
+            float: left;
+            i {
+                color: #247edb;
+            }
+        }
+        .latest-doodle-date {
+            float: right;
+            i {
+                color: #a31b20;
+            }
+        }
+    }
+    .doodle-contents {
+        margin-top: 5px;
+        background: #eee;
+        .doodle-text {
+            display: block;
+            width: 100%;
+            height: @doodle-max-height;
+            text-align: center;
+            line-height: @doodle-max-height;
+            font-size: 20px;
+            text-decoration: none;
+            color: #444;
+            font-family: @patrick;
+            text-transform: uppercase;
+            border: 5px solid #eee;
+            transition: all 0.5s;
+        }
+        .doodle-image {
+            padding: 5px;
+        }
+        a:hover {
+            text-decoration: none;
+            .doodle-text {
+                background: #fff;
+                transition: all 0.5s;
+                border-color: #ddd;
+            }
         }
     }
 }

@@ -30,11 +30,18 @@
             
         .col-md-3.portfolio-item(data-ng-repeat="chain in chains.list")
             article.doodle
-                a(href="#/chain/{{chain._id}}")
-                    div.doodle-text(data-ng-show="chain.text.length>0") {{chain.text}}
-                    img.doodle-image.img-responsive(data-ng-show="chain.image.length>0", data-ng-src="{{chain.image}}", alt="Rysunek użytkownika {{doodle.author}}")
-                span.doodle-detail.age
-                    small {{chain.creation_date | todayDeltaFilter}}
-                span.doodle-detail.count 24
+                .doodle-details
+                    .counter-doodlers
+                        i.fa.fa-users
+                        strong 23
+                        |  maziaczy
+                    .latest-doodle-date
+                        i.fa.fa-calendar
+                        | {{ chain.creation_date | todayDeltaFilter }}
+                .clearfix
+                .doodle-contents
+                    a(href="#/chain/{{chain._id}}")
+                        div.doodle-text(data-ng-show="{{ chain.text.length > 0 }}") {{ chain.text }}
+                        img.doodle-image.img-responsive(data-ng-show="{{ chain.image.length > 0 }}", data-ng-src="{{ chain.image }}", alt="Rysunek użytkownika {{ doodle.author }}")
         .col-lg-12
             pagination.pull-right(style="margin: 0px;",data-ng-if="chains.list.length > 0", total-items="chains.totalItems", ng-model="chains.currentPage", ng-change="chains.pageChanged()")
