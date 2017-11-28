@@ -1,0 +1,54 @@
+doctype html
+html(ng-app='maziaj')
+    head
+        meta(charset="utf-8")
+        title Maziaj.pl
+        base(href="/")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900&subset=latin,latin-ext", rel="stylesheet", type="text/css")
+        link(href="http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext", rel="stylesheet", type="text/css")
+        //styles
+        block stylesheets
+        body(data-ng-class="page.bodyClass")
+            block menu
+                #top
+                    nav(role="navigation", data-ng-controller="menuCtrl")
+                        ul
+                            li(data-ng-class="{ active: isActive('/play')}")
+                                a(href="#/play")
+                                    span I wanna start
+                                        br
+                                        small doodlin'!
+                            //li(data-ng-class="{ active: isActive('/help')}")
+                                a(href="#/help")
+                                    span Czym jest
+                                        br
+                                        small maziaj
+                            li
+                                .logo
+                                    a(href="#/")
+                                        img(src="images/logotype-en.png", alt="Doodler")
+                            li(data-ng-class="{ active: isActive('/')}")
+                                a(href="#/chain")
+                                    span Chains
+                                        br
+                                        small gallery
+                            //li(data-ng-class="{ active: isActive('/profile')}")
+                                a(href="#/profile")
+                                    span Profil
+                                        br
+                                        small maziacza
+            block content
+            footer
+                .container
+                    .row
+                        .col-lg-6
+                            p Copyright © Doodler 2014 #{__('lang')}
+                        .col-lg-6
+                            p
+                                strong Authors
+                                br
+                                span Bartosz Gałek, Krzysztof Borkowski, Kamil Drabek, Jakub Dębski
+            block javascripts
+            //scripts

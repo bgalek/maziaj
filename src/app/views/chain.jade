@@ -1,0 +1,20 @@
+#gallery.container(when-scrolled="loadDoodle(nextDoodle)")
+    h2.page-header=title
+        small=subtitle
+    section
+        article.doodle(ng-repeat="doodle in doodles")
+            .doodle-details
+                .counter-doodlers
+                    i.fa.fa-user
+                    strong author:
+                    |  {{ doodle.author }}
+                .latest-doodle-date
+                    i.fa.fa-calendar
+                    | << TODO: doodle timestamp >>
+            .clearfix
+            .doodle-contents
+                img.doodle-image.chain-view.img-responsive(data-ng-show="{{ doodle.image.length > 0 }}", data-ng-src="{{ doodle.image }}", alt="Drawing author: {{ doodle.author }}")
+                div.doodle-text(data-ng-show="{{ doodle.text.length > 0 }}") {{ doodle.text }}
+    p.bg-primary.text-center(ng-show="busy", style="padding: 15px 0; margin: 30px 0;") Loading more doodles...
+    p.text-center(style="padding: 20px 0;")
+        button.btn.btn-lg.btn-danger.load-more-doodles(ng-click="loadDoodle(nextDoodle)") Load more doodles!

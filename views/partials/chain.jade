@@ -1,8 +1,0 @@
-.container
-    h1.page-header=title
-        small=subtitle
-    section(infinite-scroll="loadDoodle(nextDoodle)", infinite-scroll-disabled="busy", infinite-scroll-distance="0")
-        article.doodle(ng-repeat="doodle in doodles")
-            div.doodle-text(data-ng-show="doodle.text.length>0") {{doodle.text}}
-            img.doodle-image.img-responsive(data-ng-show="doodle.image.length>0", data-ng-src="{{doodle.image}}", alt="Rysunek użytkownika {{doodle.author}}")
-    div(ng-show="busy") Wczytywanie sznurka...

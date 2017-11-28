@@ -1,0 +1,82 @@
+@import 'variables';
+
+article.doodle {
+    background: transparent;
+    margin: 26px auto 0;
+    max-width: @doodle-max-width;
+    min-height: @doodle-max-height;
+    position: relative;
+    width: 100%;
+    .doodle-details {
+        color: #909090;
+        font-family: @lato;
+        padding: 0 3px;
+        text-transform: uppercase;
+        font-size: 13px;
+        strong {
+            font-weight: 700;
+            color: #444444;
+        }
+        i {
+            margin-right: 5px;
+        }
+        .counter-doodlers {
+            float: left;
+            i {
+                color: #247edb;
+            }
+        }
+        .latest-doodle-date {
+            float: right;
+            i {
+                color: #a31b20;
+            }
+        }
+    }
+    .doodle-contents {
+        margin-top: 5px;
+        background: #eee;
+        .doodle-text {
+            display: block;
+            width: 100%;
+            height: @doodle-max-height;
+            text-align: center;
+            line-height: @doodle-max-height;
+            font-size: 16px;
+            text-decoration: none;
+            color: #444;
+            font-family: @patrick;
+            text-transform: uppercase;
+            border: 5px solid #eee;
+            transition: all 0.5s;
+            background: transparent url("@{images-dir}paper-pattern.jpg") repeat-x top left;
+        }
+        .doodle-image {
+            padding: 5px;
+            height: 162px;
+            &.chain-view {
+                height: auto;
+            }
+        }
+        a:hover {
+            text-decoration: none;
+            .doodle-text {
+                background-position: top right;
+                transition: all 0.5s;
+                border-color: #ddd;
+            }
+        }
+    }
+}
+
+.load-more-doodles {
+    background: #a31b20;
+    font-family: @lato;
+    display: inline-block;
+    border: 0 none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 300;
+    height: 45px;
+    line-height: 25px;
+}

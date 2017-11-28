@@ -1,22 +1,13 @@
 {
-  "name": "maziaj.pl",
-  "version": "0.0.1",
-  "authors": [
-    "Bartosz Gałek",
-    "Krzysztof Borkowski"
-  ],
-  "description": "Maziaj webapp",
-  "license": "MIT",
-  "homepage": "http://maziaj.pl",
+  "name": "maziaj",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.1.1",
-    "angular": "1.2.x",
-    "angular-route": "1.2.x",
+    "angular": "~1.2.26",
+    "bootstrap": "~3.2.0",
     "angular-bootstrap": "~0.11.0",
-    "ngInfiniteScroll": "1.0.0",
-    "ngstorage": "~0.3.0",
     "moment": "~2.8.1",
-    "css3-social-signin-buttons": "necolas/css3-social-signin-buttons"
+    "angular-local-storage": "~0.1.1",
+    "angular-route": "~1.2.26",
+    "fontawesome": "~4.2.0"
   }
 }

@@ -1,7 +1,10 @@
+.idea/
 *.iml
-.idea
+*.ipr
+*.iws
 node_modules
-public/lib
-public/stylesheets/*.css
+build
+release
+tmp
+bower_components
 npm-debug.log
-config/config.json

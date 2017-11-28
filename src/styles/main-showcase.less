@@ -1,0 +1,108 @@
+@import "variables";
+
+#showcase {
+    background-color: rgba(0, 118, 175, 0.9);
+    //height: 315px;
+    .help {
+        font-family: @lato;
+        color: #fff;
+        text-align: center;
+        padding: 30px 200px 0 200px;
+        p {
+            font-size: 130%;
+            line-height: 170%;
+            //padding: 9% 0 0 0;
+            font-weight: 300;
+        }
+        cite {
+            display: block;
+            font-size: 110%;
+            line-height: 130%;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .play {
+            font-family: @lato;
+            background: #a31b20;
+            width: 200px;
+            display: inline-block;
+            position: relative;
+            bottom: -30px;
+            border: 0 none;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            height: 60px;
+            line-height: 40px;
+        }
+    }
+    .login-form {
+        width: 375px;
+        position: relative;
+        background-color: #e8e2dc;
+        padding: 15px;
+        margin: 30px;
+        a.play {
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 120%;
+            font-family: @lato;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 20px;
+            background-color: #a31b20;
+            margin-bottom: 10px;
+        }
+        span.divider {
+            display: block;
+            background: url("@{images-dir}divider.png") repeat-x center;
+            text-align: center;
+            margin-bottom: 10px;
+            small {
+                text-transform: uppercase;
+                color: #94908c;
+                background-color: #e8e2dc;
+                padding: 0 5px;
+            }
+        }
+        input {
+            width: 100%;
+            display: block;
+            padding: 10px;
+            border: none;
+            margin-bottom: 10px;
+            &[type=submit] {
+                font-weight: bold;
+                background-color: #0076b0;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 110%;
+                font-family: @lato;
+                color: #fff;
+            }
+        }
+        .btn {
+            color: #fff;
+            width: 48.5%;
+            border-radius: 0px;
+            font-size: 70%;
+            line-height: 120%;
+            text-align: left;
+            text-transform: uppercase;
+            &:last-child {
+                margin-left: 3%;
+            }
+            &.btn-facebook {
+                background-color: #5d76aa;
+            }
+            &.btn-google {
+                background-color: #d45c45;
+            }
+        }
+    }
+}
+
+#gallery {
+    padding-top: 30px;
+}
